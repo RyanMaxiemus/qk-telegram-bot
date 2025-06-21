@@ -31,7 +31,7 @@ class TelegramBot:
     
     def setup_keyboard(self):
         """Setup the custom dark-themed keyboard with 8 specialized buttons"""
-        # Create keyboard buttons with dark theme aesthetic
+        # Create keyboard buttons with dark theme aesthetic - arranged in 2 rows of 4
         # Row 1: File operations and Telegram operations
         row1 = [
             KeyboardButton("🔒 Encrypt File"),
@@ -48,11 +48,12 @@ class TelegramBot:
             KeyboardButton("📱⬇️ Download from Socials")
         ]
         
-        # Create keyboard markup with dark theme styling
+        # Create keyboard markup that will appear as a persistent custom keyboard
+        # This replaces the user's regular keyboard with our custom button layout
         self.custom_keyboard = ReplyKeyboardMarkup(
             keyboard=[row1, row2],
-            resize_keyboard=True,
-            one_time_keyboard=False,
+            resize_keyboard=True,        # Fits screen size
+            one_time_keyboard=False,     # Stays visible after button press
             input_field_placeholder="💎 Choose a command..."
         )
     
@@ -248,7 +249,7 @@ class TelegramBot:
         # Error handler
         self.application.add_error_handler(self.error_handler)
     
-    async def run(self):
+    def run(self):
         """Run the bot"""
         try:
             # Create application
@@ -261,7 +262,7 @@ class TelegramBot:
             logger.info("💎 Custom keyboard with 8 specialized commands loaded")
             
             # Start the bot
-            await self.application.run_polling()
+            self.application.run_polling()
             
         except Exception as e:
             logger.error(f"Failed to start bot: {e}")
@@ -276,8 +277,7 @@ def main():
     
     try:
         bot = TelegramBot()
-        import asyncio
-        asyncio.run(bot.run())
+        bot.run()
     except KeyboardInterrupt:
         logger.info("🛑 Bot stopped by user")
     except Exception as e:
