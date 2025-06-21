@@ -31,21 +31,21 @@ class TelegramBot:
     
     def setup_keyboard(self):
         """Setup the custom dark-themed keyboard with 8 specialized buttons"""
-        # Create keyboard buttons with dark theme aesthetic - arranged in 2 rows of 4
+        # Create keyboard buttons with emoji-only layout - arranged in 2 rows of 4
         # Row 1: File operations and Telegram operations
         row1 = [
-            KeyboardButton("🔒 Encrypt File"),
-            KeyboardButton("🔓 Decrypt File"), 
-            KeyboardButton("⬆️ Upload to Telegram"),
-            KeyboardButton("⬇️ Download from Telegram")
+            KeyboardButton("🔒✖"),  # Encrypt File
+            KeyboardButton("🔓✔"),  # Decrypt File
+            KeyboardButton("✉⬆"),   # Telegram Upload
+            KeyboardButton("✉⬇")    # Telegram Download
         ]
         
         # Row 2: Cloud operations and media downloading
         row2 = [
-            KeyboardButton("☁️⬆️ Upload to Cloud"),
-            KeyboardButton("☁️⬇️ Download from Cloud"),
-            KeyboardButton("🌐⬇️ Scrape Web"),
-            KeyboardButton("📱⬇️ Download from Socials")
+            KeyboardButton("☁⬆"),   # Cloud Upload
+            KeyboardButton("☁⬇"),   # Cloud Download
+            KeyboardButton("🌐⬇"),  # Web Scraper
+            KeyboardButton("📱⬇")   # Social Media Download
         ]
         
         # Create keyboard markup that will appear as a persistent custom keyboard
@@ -179,14 +179,14 @@ class TelegramBot:
         
         # Map button text to command functions
         button_mapping = {
-            "🔒 Encrypt File": self.encrypt_file_command,
-            "🔓 Decrypt File": self.decrypt_file_command,
-            "⬆️ Upload to Telegram": self.telegram_upload_command,
-            "⬇️ Download from Telegram": self.telegram_download_command,
-            "☁️⬆️ Upload to Cloud": self.cloud_upload_command,
-            "☁️⬇️ Download from Cloud": self.cloud_download_command,
-            "🌐⬇️ Scrape Web": self.scrape_media_download_command,
-            "📱⬇️ Download from Socials": self.social_download_command
+            "🔒✖": self.encrypt_file_command,
+            "🔓✔": self.decrypt_file_command,
+            "✉⬆": self.telegram_upload_command,
+            "✉⬇": self.telegram_download_command,
+            "☁⬆": self.cloud_upload_command,
+            "☁⬇": self.cloud_download_command,
+            "🌐⬇": self.scrape_media_download_command,
+            "📱⬇": self.social_download_command
         }
         
         if text in button_mapping:
