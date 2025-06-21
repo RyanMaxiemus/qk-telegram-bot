@@ -34,18 +34,18 @@ class TelegramBot:
         # Create keyboard buttons with emoji-only layout - arranged in 2 rows of 4
         # Row 1: File operations and Telegram operations
         row1 = [
-            KeyboardButton("🔒✖"),  # Encrypt File
-            KeyboardButton("🔓✔"),  # Decrypt File
-            KeyboardButton("✉⬆"),   # Telegram Upload
-            KeyboardButton("✉⬇")    # Telegram Download
+            KeyboardButton("🔒"),    # Encrypt File
+            KeyboardButton("🔓"),    # Decrypt File
+            KeyboardButton("📤"),    # Telegram Upload
+            KeyboardButton("📥")     # Telegram Download
         ]
         
         # Row 2: Cloud operations and media downloading
         row2 = [
-            KeyboardButton("☁⬆"),   # Cloud Upload
-            KeyboardButton("☁⬇"),   # Cloud Download
-            KeyboardButton("🌐⬇"),  # Web Scraper
-            KeyboardButton("📱⬇")   # Social Media Download
+            KeyboardButton("⛅"),    # Cloud Upload
+            KeyboardButton("☁"),     # Cloud Download
+            KeyboardButton("🌐"),    # Web Scraper
+            KeyboardButton("📱")     # Social Media Download
         ]
         
         # Create keyboard markup that will appear as a persistent custom keyboard
@@ -179,14 +179,14 @@ class TelegramBot:
         
         # Map button text to command functions
         button_mapping = {
-            "🔒✖": self.encrypt_file_command,
-            "🔓✔": self.decrypt_file_command,
-            "✉⬆": self.telegram_upload_command,
-            "✉⬇": self.telegram_download_command,
-            "☁⬆": self.cloud_upload_command,
-            "☁⬇": self.cloud_download_command,
-            "🌐⬇": self.scrape_media_download_command,
-            "📱⬇": self.social_download_command
+            "🔒": self.encrypt_file_command,
+            "🔓": self.decrypt_file_command,
+            "📤": self.telegram_upload_command,
+            "📥": self.telegram_download_command,
+            "⛅": self.cloud_upload_command,
+            "☁": self.cloud_download_command,
+            "🌐": self.scrape_media_download_command,
+            "📱": self.social_download_command
         }
         
         if text in button_mapping:
